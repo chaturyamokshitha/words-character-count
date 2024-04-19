@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>word&character-count</title>
+    <link href="./output.css" rel="stylesheet">
+</head>
+
+<body class="bg-pink-100">
+    <h1 class="text-center text-pink-700 "><b>~~TEXT BOX~~</b></h1>
+    <div class="bg-pink-200 mt-20 rounded-lg flex flex-col justify-center">
+       
+        <textarea id="textarea" rows="14" cols="35" class="m-2"></textarea>
+ 
+    
+    </div>
+    <div class="bg-blue-600 relative bottom-20 rounded-md flex flex-row justify-center ml-8 mr-8 mt-8 mb-4 ">
+        <p class="text-center pr-4 text-white" id="word">0 words </p>
+        <p class="text-center text-white " id="charc">0 Characters</p>
+    </div>
+   
+    <div class="flex justify-between">
+        <button id="u_c" class="bg-red-700  text-white relative bottom-8  h-10 w-24 m-4 rounded-sm sm:m-4">uppercase</button>
+        <button id="clear" class="bg-orange-500  text-white rounded-sm bottom-10 relative  h-10 w-20">clear</button>
+        <button id="l_c" class="bg-green-700  text-white relative bottom-8 h-10 w-24 m-4 rounded-sm sm:m-4">Lowercase</button>
+    </div>
+   
+
+
+
+
+
+
+
+
+
+    <script>
+        let itextarea = document.getElementById("textarea");
+        let w_c = document.getElementById("word");
+        let c_c = document.getElementById("charc");
+        let clean = document.getElementById("clear");
+        let uppercase = document.getElementById("u_c");
+        let lowercase = document.getElementById("l_c");
+        itextarea.addEventListener("input", () => {
+            c_c.textContent = `${ itextarea.value.length } Characters`;
+            let txt = itextarea.value.trim();
+            w_c.textContent = `${ txt.split(/\s+/).filter((i) => i).length } Words`;
+        })
+        clean.addEventListener("click", () => {
+
+            itextarea.value = "";
+            w_c.textContent = "0 Words";
+            c_c.textContent = "0 Characters";
+         document.body.style.backgroundImage = "url('https://images.freeimages.com/images/large-previews/804/orange-sky-1197038.jpg')";
+        })
+        uppercase.addEventListener("click", () => {
+            itextarea.value = itextarea.value.toUpperCase();
+            document.body.style.backgroundImage = "url('https://wallpaperaccess.com/full/2084743.jpg')";
+        })
+        lowercase.addEventListener("click", () => {
+            itextarea.value = itextarea.value.toLowerCase();
+            document.body.style.backgroundImage = "url('https://wallpaperaccess.com/full/2084714.jpg')";
+        })
+        
+    </script>
+</body>
+
+</html>
